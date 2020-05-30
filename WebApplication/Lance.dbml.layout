@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="Lance">
+  <DataContextMoniker Name="/LanceDataContext" />
+  <nestedChildShapes>
+    <classShape Id="0f082d92-6e0d-4ed2-9672-1f024673142e" absoluteBounds="6.25, 1.25, 2, 1.9631982421875003">
+      <DataClassMoniker Name="/LanceDataContext/Advert" />
+      <nestedChildShapes>
+        <elementListCompartment Id="80fefa41-2997-4ec1-aee3-5b20626e406b" absoluteBounds="6.265, 1.71, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="fcbb9604-405f-422d-9cd0-efea2966fd50" absoluteBounds="3.5, 1.25, 2, 1.9631982421875003">
+      <DataClassMoniker Name="/LanceDataContext/Apply" />
+      <nestedChildShapes>
+        <elementListCompartment Id="43ae27cf-39f3-401d-8898-fcbfe864745e" absoluteBounds="3.515, 1.71, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ba76b5c2-3d70-48be-b509-00aa5c544120" absoluteBounds="3.5, 5.25, 2, 1.9631982421875005">
+      <DataClassMoniker Name="/LanceDataContext/Job" />
+      <nestedChildShapes>
+        <elementListCompartment Id="efc017e7-1d18-4855-b436-c2a24494ca6d" absoluteBounds="3.515, 5.71, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e80d606d-f6c3-471b-a211-b34203e6fe6a" absoluteBounds="0.75, 1, 2, 2.5401025390625005">
+      <DataClassMoniker Name="/LanceDataContext/LUser" />
+      <nestedChildShapes>
+        <elementListCompartment Id="25ebcfcc-d09b-4fd9-ab1e-be59534b2684" absoluteBounds="0.765, 1.46, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.5 : 2.23159912109375); (6.25 : 2.23159912109375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LanceDataContext/Apply/Apply_Advert" />
+      <nodes>
+        <classShapeMoniker Id="fcbb9604-405f-422d-9cd0-efea2966fd50" />
+        <classShapeMoniker Id="0f082d92-6e0d-4ed2-9672-1f024673142e" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 6.23159912109375); (7.25 : 6.23159912109375); (7.25 : 3.2131982421875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LanceDataContext/Job/Job_Advert" />
+      <nodes>
+        <classShapeMoniker Id="ba76b5c2-3d70-48be-b509-00aa5c544120" />
+        <classShapeMoniker Id="0f082d92-6e0d-4ed2-9672-1f024673142e" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 2.23159912109375); (3.5 : 2.23159912109375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LanceDataContext/LUser/LUser_Apply" />
+      <nodes>
+        <classShapeMoniker Id="e80d606d-f6c3-471b-a211-b34203e6fe6a" />
+        <classShapeMoniker Id="fcbb9604-405f-422d-9cd0-efea2966fd50" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

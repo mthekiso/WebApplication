@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Lance" Class="LanceDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Lance.mdf;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="LanceConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Advert" Member="Adverts">
+    <Type Name="Advert">
+      <Column Name="A_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="AdvertNum" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProdHouse" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="Time" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="J_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Ap_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Apply_Advert" Member="Apply" ThisKey="Ap_Id" OtherKey="Ap_Id" Type="Apply" IsForeignKey="true" />
+      <Association Name="Job_Advert" Member="Job" ThisKey="J_Id" OtherKey="J_Id" Type="Job" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Apply" Member="Applies">
+    <Type Name="Apply">
+      <Column Name="Ap_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FName" Type="System.String" DbType="Char(40) NOT NULL" CanBeNull="false" />
+      <Column Name="Surname" Type="System.String" DbType="Char(40) NOT NULL" CanBeNull="false" />
+      <Column Name="RecentWork" Type="System.String" DbType="Char(300) NOT NULL" CanBeNull="false" />
+      <Column Name="Upload" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Us_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Apply_Advert" Member="Adverts" ThisKey="Ap_Id" OtherKey="Ap_Id" Type="Advert" />
+      <Association Name="LUser_Apply" Member="LUser" ThisKey="Us_Id" OtherKey="Us_Id" Type="LUser" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Job" Member="Jobs">
+    <Type Name="Job">
+      <Column Name="J_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ProdHouse" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="Upload" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="TypeOfShow" Type="System.String" DbType="Char(40) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Time" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="Job_Advert" Member="Adverts" ThisKey="J_Id" OtherKey="J_Id" Type="Advert" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LUsers" Member="LUsers">
+    <Type Name="LUser">
+      <Column Name="Us_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FName" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="Surname" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="Username" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="Crew" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="Usertype" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="Con_pass" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Association Name="LUser_Apply" Member="Applies" ThisKey="Us_Id" OtherKey="Us_Id" Type="Apply" />
+    </Type>
+  </Table>
+</Database>
